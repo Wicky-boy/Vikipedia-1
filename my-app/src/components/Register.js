@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {Link,HashRouter as Router} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {Button,Container,Row,Col} from 'react-bootstrap';
 import registerSVG from "../image/registerSVG.svg"
 import TextField from '@material-ui/core/TextField';
@@ -23,7 +23,7 @@ function Register({history}){
         .then((response) =>{
             console.log(response.data)
         })
-        .then((res)=>{history.push()})
+        .then((res)=>{history.push("/login")})
         .catch((err) =>{console.log(err)})
         event.preventDefault();
     }
@@ -47,11 +47,7 @@ function Register({history}){
                     <TextField onChange={registerInputOnChangeEventHandler} name="userPassword" className="registerInput2" id="outlined-basic2" label="Create Password" variant="outlined" value={userPassword}></TextField>
                     <br/>
                     <br/>
-                    <Router>
-                    <Link to="/login">
-                        <Button className="navButton btn" type="submit">Register</Button>
-                    </Link>
-                    </Router>
+                    <Button className="navButton btn" type="submit">Register</Button>
                 </form>
                 <hr className="registerpagesHR"/>
                 <p className="para">Already have an account ? [<Link to="login"><a className="registerPagesLogin" href="/login">Login</a>]</Link> </p>

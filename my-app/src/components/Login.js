@@ -33,7 +33,6 @@ function Login({history}) {
       setUserID(response.data[1])
       // console.log(userID)
     })  
-      
     event.preventDefault();  
 
   }
@@ -85,7 +84,7 @@ function Login({history}) {
     </form>
     {loginInfo ? <Router><Link  to={`/home/${userID}`}><Button className="nextButton btn" type="button">Next</Button></Link></Router>  :<p style={{color:"red"}} className="para">{loginMessage}</p>}
     <hr className="registerpagesHR"/>
-    <p className="para">Don't have an account ? [<Link to="/register"><a className="registerPagesLogin" href="###">register</a></Link>]</p>
+    <p className="para">Don't have an account ? [<Link to="/register"><a className="registerPagesLogin" href="###">Register</a></Link>]</p>
       </div>
       </Col>
     </Row>
