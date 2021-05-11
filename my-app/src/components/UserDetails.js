@@ -10,7 +10,7 @@ import Preloader from "./Preloader.js"
 function UserDetails(match){
     const userID = match.match.params.id
     const indexNumber = match.match.params.index
-    const path="https://vikipedia1.herokuapp.com/home/"+userID+"/"+indexNumber+"/response"
+    const path="https://vikipedia-1.herokuapp.com/#/home/"+userID+"/"+indexNumber+"/response"
     const [loading ,setLoading] = useState(true)
     const [show, setShow] = useState(false);
     const target = useRef(null);
@@ -60,7 +60,7 @@ function UserDetails(match){
                 <p className="para">Share the given link with your friends, So this link will lets your friends to respond. Click the clipboard icon <i class="far fa-clipboard clipboard"></i> to copy and then share the link with your friends</p>
                 <div className="linkClip">
                 <div className="linkDiv">
-                <input type="text" className="copyTextInput" id="copyText" name="country" value={`https://vikipedia1.herokuapp.com/home/${userID}/${indexNumber}/response`} readonly></input>
+                <input type="text" className="copyTextInput" id="copyText" name="country" value={`https://vikipedia-1.herokuapp.com/#/home/${userID}/${indexNumber}/response`} readonly></input>
                 </div>
                 <div >
                 <Button ref={target} onClick={() =>{CopyText(path) 
