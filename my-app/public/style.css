@@ -1,0 +1,553 @@
+/* Setting section starts */
+
+.body{
+    background-color: rgb(241, 241, 241);
+}
+
+.heading{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 40pt;
+}
+.subHeading{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20pt;
+}
+.itemHeading{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16pt;
+    font-weight: 400;
+}
+.navTitle{
+    font-family: 'Poppins', sans-serif;
+    font-size: 35px;
+}
+.para{
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: rgb(65, 62, 62);
+}
+.a{
+    text-decoration: none;
+}
+
+Button:focus, input:focus, TextField:focus{
+    outline: none;
+}
+
+.Preloader{
+    line-height: 100vh;
+    text-align: center;
+}
+.preLoaderContainer{
+    width: 100%;
+    height:100vh;
+}
+
+
+/* Setting section ends */
+
+
+/* Nav Section Starts */
+
+.customNavbar{
+    box-shadow:20px 20px 50px grey;
+    margin-bottom: 60px;
+}
+
+
+.navLinkColor.linkColor{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-right: 20px;
+    margin-top: 10px;
+
+}
+.loginButton{
+    color:rgb(255, 255, 255);
+    background-color: #007bff;
+    border: #111111;
+    padding: 10px 30px;
+    border-radius: 25px;    
+    margin-top: -10px;
+}
+
+.navTitleATag:hover{
+    color: #111111;
+    text-decoration: none;
+}
+.navTitleATag{
+    color: #111111;
+}
+
+.logo{
+    margin-top: 5px;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+
+.sticky-nav {
+    position: sticky;
+    top: 0;
+  }
+
+.navbar-toggler{
+    background-color: black !important;
+}
+
+/* Nav Section End */
+
+
+/* Home Page Section Starts */
+
+
+
+.homepageHeading{
+    padding-top: 25%;
+}
+
+.homepageVector{
+    width: 100%;
+    height: auto;
+}
+ 
+.navButton.btn {
+    color:rgb(255, 255, 255) ;
+    background-color: #007bff ;
+    padding: 10px 30px ;
+    border-radius: 25px ; 
+    font-weight: 700 ;   
+}
+
+
+.btn.navButton:hover{
+    background-color: #0061c9;
+    color: rgb(180, 180, 180);
+}
+
+.homePage2{
+    margin-top: 60px;
+    text-align: center;
+}
+
+.supporters{
+    text-decoration: underline !important;
+}
+
+.card1{
+    background-color:rgb(216, 216, 216);
+    width: 250px;
+    height: 420px;
+    border-radius: 20px;
+    padding-top: 10px;
+    margin: 60px;
+}
+
+.cardImage{
+    border-radius: 20px;
+    max-width: 90%;
+    max-height: 90%;
+    display:block;
+    margin:auto;
+
+}
+.cardImage1{
+    border-radius: 20px;
+    max-width: 90%;
+    max-height: 70%;
+    display:block;
+    margin:auto;
+
+}
+.cardHeading{
+    max-width: 90%;
+    max-height: 90%;
+    margin-top: 15px;
+    margin-left: 10px;
+    text-align: center;
+}
+.cardRow{
+    display:flex;
+    justify-content: center;
+    place-items: center;
+}
+
+.cardButton.btn{
+    padding: 8px 60px;
+    border-radius:25px;
+    display:block;
+    margin: auto;
+    font-weight: 700;
+}
+button.cardButton{
+    background-color: #007bff;
+    color: white;
+}
+.fab.fa-instagram{
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+}
+
+.thirdViewPage{
+    padding: 100px 0px 50px 0px;
+    /* background-color: rgb(255, 255, 255); */
+}
+
+.thirdViewPageContainer1{
+    width: 100%;
+    height:auto;
+    
+}
+.shareYourOpinionSvg{
+    width: 100%;
+    height:auto;
+}
+
+.opinionText{
+
+    text-align: center;
+}
+
+.OpinionButton.btn{
+    padding: 15px 30px;
+    margin-left: 10px;
+    font-weight: 500;
+    border-radius: 0px 25px
+}
+
+.opinionInputBox{
+    margin-bottom: 20px !important;
+}
+
+a.followButton:hover{
+    text-decoration: none;
+    
+}
+.btn.cardButton:hover{
+    background-color: #0061c9;
+}
+
+/* Home Page Section Ends */
+
+/* Footer section starting */
+
+.footer{
+    text-align: center;
+    background-color: #1b1b1b;
+    padding: 12px 0px;
+    width: 100%;
+
+}
+p.footerPara{
+    color:white;
+    display: inline-block;
+    font-weight: 500;
+}
+
+
+
+/* Footer section ending */
+
+/* Login section starting */
+.loginContainer{
+    margin-top: 50px;
+    width: 100%;
+    margin-bottom: 240px;
+}
+.loginDiv{
+    margin-top: 120px;
+}
+.loginSVG{
+    width: 100%;
+    height: auto;
+}
+
+.btn.nextButton{
+    background-color: #30297c;
+    padding: 10px 40px;
+    border-radius: 25px;
+    font-weight: 700;
+    border:0px;
+}
+
+.loginFormDiv{
+    padding-top: 25px;
+    background-color:#d3d3d3;
+    width:100%;
+    height:100%;
+    border-radius:25px;
+    text-align: center;
+}
+/* Login section ending */
+
+
+/* Register section starting */
+
+
+.registerContainer{
+    width: 100%;
+    margin-bottom: 240px;
+}
+
+.registerSVG{
+    max-width: 100%;
+    height: auto;
+}
+.registerDiv{
+    margin-top: 100px;
+}
+.registerFormDiv{
+
+    max-width: 100%;
+    height: 100%;
+    background-color: #d3d3d3;
+    text-align: center;
+    padding: 30px 5px 15px 5px;
+    border-radius: 25px
+    
+}
+.registerPagesLogin{
+    color:rgb(114, 114, 114);
+}
+.registerpagesHR{
+    width:80%;
+    height: 5px;
+}
+
+
+/* Register section ending */
+
+/* Home section starting */
+
+.tablesDiv{
+    width:100%;
+    /* height: 50px; */
+    height: 250px;
+    overflow-y: scroll;
+    padding-bottom: 0px;
+    border-radius: 25px;
+}
+.tablesDiv::-webkit-scrollbar {
+    display: none;
+}
+.scrollableTable{
+    margin-bottom: 0px;
+}
+.personalDetailsSVG{
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
+
+}
+.personalDetails{
+    width: 100%;
+    margin-bottom: 100px;
+    padding-top: 100px;
+
+}
+.responseHeading{
+    margin: 20px 0px;
+}
+
+/* Home section ending */
+
+/* Create section starting */
+
+.colImage{
+    width: 100%;
+    height: 100%;
+}
+
+.createPageContainer{
+    padding-top: 100px;
+    width: 100%;
+    margin-bottom: 240px;
+
+}
+.createNewDiv{
+    width: 100%;
+    height: 300px;
+    overflow-y: scroll;
+    background-color: #dadada;
+    padding:20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+}
+.createNewDiv::-webkit-scrollbar {
+    display: none;
+}
+.createNewSVG{
+    margin-top: 50px;
+}
+.createNewRow{
+    margin-top: 20px;
+}
+.questionHeading{
+    display:block;
+    margin-top: 15px;
+}
+
+
+
+.selectionButton{
+    padding:12px 25px;
+    width:50%;
+    border: transparent ;
+    border-left: 4px solid #0061c9;
+    font-weight: 500;
+    background: linear-gradient(90deg, hsla(0, 0%, 100%, 1) 0%, hsla(0, 0%, 100%, 1) 77%, hsla(356, 53%, 57%, 0) 100%);
+    display:block;
+    margin: 8px 0px;
+}
+
+.selectedbutton{
+    padding:12px 25px;
+    width:50%;
+    border: transparent ;
+    border-left: 4px solid #0061c9;
+
+    font-weight: 500;
+    background: linear-gradient(90deg, rgb(168, 168, 168) 0%, rgb(177, 177, 177) 77%, hsla(356, 53%, 57%, 0) 100%);
+    display:block;
+    margin: 8px 0px;
+}
+
+.customCreateNewButton{
+    width:70%;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-left: 15%;
+    border-radius: 25px !important;
+}
+
+/* Create section ending */
+
+
+/* UserDetails Section Starting */
+.userDetailsContainer{
+    width:100%;
+    margin-bottom: 100px;
+    padding-top: 80px;
+}
+.userDeatilsTable{
+    border-radius: 25px;
+    overflow-y: scroll;
+    width: 100%;
+    height: 280px;
+    margin-bottom: 30px;
+}
+.userDeatilsTable::-webkit-scrollbar {
+    display: none;
+}
+#copyText{
+    width: 100%;
+    border-radius: 8px;
+    text-indent: 10px;
+    border:0px;
+    background-color:rgb(19, 19, 19);
+    color:white;
+}
+
+div.linkDiv{
+    width:92%;
+    background-color: #1b1b1b;
+    color: rgb(150, 150, 150);
+    padding: 10px 10px;
+    overflow-x: scroll;
+    border-radius: 20px 0px 0px 20px;
+    margin: 10px 0px;
+    text-align: center;
+    display: inline-block;
+
+}
+div.linkDiv::-webkit-scrollbar {
+    display: none;
+}
+.clipboard{
+    padding:0px;
+    margin: 0px;
+}
+/* .clipboardDiv{
+    margin-top: 9px;
+    font-size: 20px;
+    padding:8px;
+    border-radius: 0px 20px 20px 0px;
+    text-align: center;
+    background-color: rgb(214, 214, 214);
+    height:45px;
+    width:45px;
+} */
+Button.clipCopyButton{
+    height:46px;
+    width:46px;
+    margin-top: 10px;
+    border-radius: 0px 20px 20px 0px;
+}
+.linkClip{
+    display: flex;
+    overflow: hidden;
+}
+.linkPara{
+    margin-bottom: 0px;
+    
+}   
+
+
+/* UserDetails Section Ending */
+
+
+/* Response Section Starting */
+.responseContainer{
+    width:100%;
+    margin-bottom: 120px;
+    padding-top: 50px;
+   
+}
+
+.selectionButton1{
+    padding:12px 25px;
+    width:50%;
+    border: transparent ;
+    border-left: 4px solid #0061c9;
+    font-weight: 500;
+    background: linear-gradient(90deg, hsla(0, 0%, 100%, 1) 0%, hsla(0, 0%, 100%, 1) 77%, hsla(356, 53%, 57%, 0) 100%);
+    display:block;
+    margin: 8px 0px;
+}
+.selectedbutton1{
+    padding:12px 25px;
+    width:50%;
+    border: transparent ;
+    border-left: 4px solid #0061c9;
+    font-weight: 500;
+    background: linear-gradient(90deg, rgb(168, 168, 168) 0%, rgb(177, 177, 177) 77%, hsla(356, 53%, 57%, 0) 100%);
+    display:block;
+    margin: 8px 0px;
+}
+
+/* Response Section Ending */
+
+
+/* Result section Starting */
+.resultDiv{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.resultTableDiv{
+    width:100%;
+    height: 300px;
+    overflow-y: scroll;
+    border-radius: 25px;
+
+}
+.resultPara1{
+    color:rgb(0, 182, 0);
+}
+.scoreHead{
+    margin: 10px 0px;
+}
+/* Result section Ending */
