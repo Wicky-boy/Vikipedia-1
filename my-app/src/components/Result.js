@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import {Container,Row,Col,Button} from "react-bootstrap"
 import resultSVG from "../image/resultSVG.svg"
 import Table from 'react-bootstrap/Table'
-import {Link,HashRouter as Router} from "react-router-dom"
+import {Link} from "react-router-dom"
 import Preloader from "./Preloader.js"
 
 
@@ -15,7 +15,6 @@ function Result(match){
     const [answerValue,setAnswerValue] = useState({})
     const [userName,setUserName]= useState("")
     const [scoreCount,setScoreCount] = useState(0)
-    const [showScore,setShowScore]=useState(false)
     const [scoreUpdateName,setScoreUpdateName] = useState("")
     const [loading ,setLoading] = useState(true)
 
@@ -101,8 +100,6 @@ function Result(match){
        await axios.post("/score",{id:ID,score:scoreCount,index:answerIndex,name:scoreUpdateName})
         .then((response) =>{
             console.log(response.data)
-        })
-        .then(()=>{setShowScore(true)
         })
         .catch((err) =>{console.log("#1",err)})
     }

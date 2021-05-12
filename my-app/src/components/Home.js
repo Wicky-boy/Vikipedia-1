@@ -1,6 +1,6 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
-import {Link,HashRouter as Router} from "react-router-dom"
+import {Link} from "react-router-dom"
 import {Container,Row,Col,Button} from "react-bootstrap"
 import Table from 'react-bootstrap/Table'
 import personalDetailsSVG from "../image/personalDetails.svg"

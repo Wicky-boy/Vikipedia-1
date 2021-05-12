@@ -551,3 +551,17 @@ Button.clipCopyButton{
     margin: 10px 0px;
 }
 /* Result section Ending */
+
+
+@media screen and (max-width: 320px){
+    .navTitle{
+        font-size: 25px ;
+    }
+    .BETA{
+        font-size: 5px ;
+    }
+    .logo{
+        width:30px;
+        height: 30px;
+    }
+}
