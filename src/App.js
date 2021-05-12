@@ -10,7 +10,7 @@ App.use(bodyParser.urlencoded({extended:true}));
 App.use(express.urlencoded({ extended: false }));
 App.use(express.json());
 
-mongoose.connect("mongodb+srv://Admin-wiki:vignesh7550@reactdb.kfqdg.mongodb.net/ReactDB",{ useNewUrlParser: true, useUnifiedTopology: true})
+.......
 
 mongoose.connection.on("connected",()=>{
   console.log("Mongoose connected with atlas successfully")
