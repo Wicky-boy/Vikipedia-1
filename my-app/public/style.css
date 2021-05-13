@@ -324,7 +324,7 @@ p.footerPara{
 .tablesDiv{
     width:100%;
     /* height: 50px; */
-    height: 250px;
+    height: 280px;
     overflow-y: scroll;
     padding-bottom: 0px;
     border-radius: 25px;
@@ -366,15 +366,28 @@ p.footerPara{
     margin-bottom: 240px;
 
 }
+.slideDiv{
+    width: 100%;
+    height:280px;
+    background-color:rgb(47, 137, 255);
+    text-align: center;
+    padding-top: 3em;
+    font-family: 'Montserrat', sans-serif;
+}
+Button.slideButton{
+    background-color: white ;
+    color:rgb(47, 137, 255);
+    font-weight: 700;
+    padding: 15px 50px;
+    border-radius: 25px;
+    border: 0px;
+}
 .createNewDiv{
     width: 100%;
-    height: 300px;
+    height: 280px;
     overflow-y: scroll;
     background-color: #dadada;
-    padding:20px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    border-radius: 25px;
+    border-radius: 20px;
 }
 .createNewDiv::-webkit-scrollbar {
     display: none;
@@ -389,6 +402,7 @@ p.footerPara{
     display:block;
     margin-top: 15px;
 }
+
 
 
 
@@ -551,6 +565,36 @@ Button.clipCopyButton{
     margin: 10px 0px;
 }
 /* Result section Ending */
+
+
+/* Thanks section starting */
+.thanksColDiv{
+    width: 100%;
+    height:100%;
+}
+.thanksColText{
+    padding-top:80px;
+}
+.thanksContainer{
+    padding-top: 50px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+div.col{
+    padding:0px
+}
+.thanksDiv{
+    padding:10px;
+}
+Button.thanksButton{
+    padding:15px 30px;
+    border-radius: 25px;
+    font-weight: 700;
+}
+
+/* Thanks section ending */
+
+
 
 
 @media screen and (max-width: 320px){
