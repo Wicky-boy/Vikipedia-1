@@ -139,3 +139,23 @@ if(process.env.NODE_ENV ==="production"){
 App.listen(PORT, () => console.log("Server started on  port "+PORT));
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// mongo "mongodb+srv://reactdb.kfqdg.mongodb.net/myFirstDatabase" --username Admin-wiki
