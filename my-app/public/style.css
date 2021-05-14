@@ -330,13 +330,12 @@ p.footerPara{
     overflow-y: scroll;
     padding: 0px 10px 0px 50px;
     border-radius: 25px;
-
+    background-color: #007bffcc;
     margin-top: 20px;
 }
 
 .tablesItemDiv{
     width:100%;
-    background-color: #007bffcc;
 }
 
 .homeResponseItemDiv{
