@@ -19,7 +19,6 @@ function View(match){
         axios.post("/home",{id:id})
         .then((res)=>{
             setUserResponse(res.data.response[index])
-            console.log(userResponse)
         })
     }
 

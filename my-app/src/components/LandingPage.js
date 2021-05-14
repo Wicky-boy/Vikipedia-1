@@ -18,10 +18,9 @@ function LandingPage(){
 
     function onSubmitEventHandler(event){
         event.preventDefault()
-        console.log(userOpinion)
         axios.post("/opinion",{opinion:userOpinion})
         .then((response)=>{
-            console.log(response.data)
+            console.log("Done")
         })
         .catch((err) =>{console.log(err)})
         setIsSubmitted(true)
@@ -31,7 +30,6 @@ function LandingPage(){
     function onChangeEventHandler(event){
         
         const value = event.target.value
-        console.log(value)
         setUserOpinion(value)
     }
 

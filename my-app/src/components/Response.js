@@ -173,13 +173,13 @@ function Response(match){
                     })
             }
         })
-        console.log(inputValue)
+
     }
 
     function responsePostHandler(event){
         axios.post("/response",{id:ID,data:inputValue})
         .then((res) =>{
-            console.log(res.data)
+            console.log("Done")
         })
         .then(()=>{setIsSubmitted(true)})
         event.preventDefault()

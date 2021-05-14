@@ -17,21 +17,18 @@ function Login({history}) {
 
   function onChangeFirstEventHandler(event){
     setFirstInputValue(event.target.value)
-    console.log(firstInputValue)
   }
 
   function onChangeSecondEventHandler(event){
     setSecondInputValue(event.target.value)
-    console.log(secondInputValue)
+
   }
    function onClickEventHandler(event){
     axios.post("/login",{name:firstInputValue,password:secondInputValue})
     .then((response) => {
-      console.log(response.data[1])
       setLoginInfo(response.data[0])
       setLoginMessage("Please enter correct username and password")
       setUserID(response.data[1])
-      // console.log(userID)
     }) 
 
     event.preventDefault();  
