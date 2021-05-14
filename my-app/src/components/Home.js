@@ -11,7 +11,7 @@ function Home(match){
     const [userName,setUserName] = useState("")
     const [userAnswers,setUserAnswers] = useState([])
     const [loading ,setLoading] = useState(true)
-    const [singleReq,setSingleReq] =useState(true)
+    const [singleReq,setSingleReq] =useState(false)
 
     function getDetails(){
         axios.post("/home",{id:ID})
@@ -19,15 +19,13 @@ function Home(match){
             // console.log(response.data)
             setUserName(response.data.username)
             setUserAnswers(response.data.response)
+            setSingleReq(true)
             setLoading(false)
-            setSingleReq(false)
-        
+            
         })
     }
     useEffect(() =>{
-        if(singleReq){
-            getDetails()
-        }
+        getDetails()
     })
 
     return(
@@ -41,70 +39,28 @@ function Home(match){
             <Link to={`/home/${ID}/${userName}/create`}>
             <Button className="btn navButton">Create New</Button>
             </Link>
-            <div className="">
+            <div className="tablesDiv">
             <h2 className="subHeading responseHeading">Response </h2>
             
             {userAnswers.length>0?<div className="tablesDiv">
-            <Table className="scrollableTable" striped bordered hover variant="dark">
-                <thead>
-                    <tr>
-                    <th>#</th>
-                    <th>Details</th>
-                    </tr>
-                </thead>
-
                     {
                 userAnswers.map((item,index) =>{  
                 return( 
-                    <tbody>
-                        <tr>
-                        <td></td>
-                        </tr>
-                        <tr key={index}>
-                        <td>Your Name </td>
-                        <td>{item.name}</td>
-                        </tr>
-                        <tr>
-                        <td>What will be your first act if you get 1M dollar? </td>
-                        <td>{item.q1}</td>
-                        </tr>
-                        <tr>
-                        <td>What will you do if you're appointed as a supreme politician? </td>
-                        <td>{item.q2}</td>
-                        </tr>
-                        <tr>
-                        <td>If god decides to give you a boon, what would you ask him? </td>
-                        <td>{item.q3}</td>
-                        </tr>
-                        <tr>
-                        <td>If you get a time machine, with whom you wanna spend some time?</td>
-                        <td>{item.q4}</td>
-                        </tr>
-                        <tr>
-                        <td>What you'll do when you're frustrated to the core </td>
-                        <td>{item.q5}</td>
-                        </tr>
-                        <tr>
-                        <td>How will you spend the last day of your life?  </td>
-                        <td>{item.q6}</td>
-                        </tr>
-                        <tr>
-                        <td>If you got a chance to sneek into a person's secret life who would it be? </td>
-                        <td>{item.q7}</td>
-                        </tr>
-                        <tr>
-                        <td>If you had three wishes for me, what would it be?</td>
-                        <td>{item.q8}</td>
-                        </tr>
-                        <tr>
-                        <td></td>
-                        </tr>
-                    </tbody>)
+                    <div className="homeResponseItemDiv" key={index}>
+                    <div className="homeResponseNameDiv">
+                         <h3 className="subHeading homeResponseNameText" style={{fontSize:"20px"}}>{item.name}</h3>
+                    </div>
+                    <div className="homeResponseViewDiv">
+                        <h3  className="homeResponseViewText"><Link to={`/view/${item.name}/${ID}/${index}`}><Button className="homeResponseViewButton">View</Button></Link></h3>
+                    </div>
+                        
+                        
+                    </div>
+                )
                 
             })
             }
                 
-            </Table>
             </div>:<div>
             <h3 className="itemHeading"> You don't have any responses</h3>
             <p className="para">Tips : Create new slam ,Share them with your friends and then come back!</p>

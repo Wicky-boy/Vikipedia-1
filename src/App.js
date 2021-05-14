@@ -64,14 +64,25 @@ App.post("/login",(req, res) => {
 App.post("/register",(req,res) =>{
   const userName = req.body.name;
   const userPassword = req.body.password;
-  userDetails.insertMany({username:userName,password:userPassword,userURLParams:userName+"user123",response:[]},(err) =>{if(!err){user.find({},(err,foundItem) =>{if(!err){
-    res.send("the userID : "+userName+" and password : "+userPassword+" has been successfully inserted into DB")
-    console.log("Successfully inserted into Database...")}})}})
-});
+  userDetails.findOne({username:userName},(err,foundItem) =>{
+    if(!err){
+      if(!foundItem){
+        userDetails.insertMany({username:userName,password:userPassword,userURLParams:userName+"user123",response:[]},(err) =>{if(!err){user.find({},(err,foundItem) =>{if(!err){
+          res.send("true")
+          console.log("Successfully inserted into Database...")}})}});
+      }else{
+        res.send("false")
+      }
+    }else{
+      console.log(err)
+    }
+
+  })
+})
 
 App.post("/home",(req,res)=>{
   const userID = req.body.id
-  console.log(req.body)
+  console.log("Got called by getDetails")
   userDetails.findOne({_id:userID},(err,foundItem) =>{
       if(foundItem){
         res.send(foundItem)

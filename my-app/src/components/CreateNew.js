@@ -26,7 +26,8 @@ function CreateNew(match){
             <Row xs={1} md={2} className="createNewRow">
                 <Col>
                 <h1 className="heading">CreateNew</h1>
-                <p className="para" >Click the options and then click submit, After that click next to complete your creation</p>
+                <p className="para" > Copy the given link and share it with your friends <br/> Tip:Simply click that <i class="far fa-clipboard clipboard"></i> Clipboard icon to copy </p>
+                <Link to={`/home/${id}`}><Button className="thanksButton">Back 2 Home</Button></Link>
                 <div className="linkClip">
                 <div className="linkDiv">
                 <input type="text" className="copyTextInput" id="copyText" name="country" value={`https://vikipedia-1.herokuapp.com/#/home/${id}/a/${userName}/b/${id}/response`} readonly></input>

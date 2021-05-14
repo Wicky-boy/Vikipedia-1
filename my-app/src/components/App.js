@@ -13,6 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CustomNav from "./Nav.js"
 import LandingPage from "./LandingPage.js"
 import Thanks from "./Thanks.js"
+import View from "./View.js"
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/home/:id/:name/create" exact component={CreateNew} />
         <Route path="/home/:id/a/:name/b/:id/response" exact component={Response} />
         <Route path="/home/:id/:name/ThankU" exact component={Thanks} />
+        <Route path="/view/:name/:id/:index" component={View} />
         <Route path="/home/:id/:index/userdetails" component={Share} />
         <Route path="/home/:id/:questionIndex/:answerIndex/result" component={Result} />
         </Switch>
