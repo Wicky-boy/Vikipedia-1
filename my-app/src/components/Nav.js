@@ -24,7 +24,7 @@ function CustomNav(){
   <Nav className="ml-auto">
       <Nav.Link  style={{color:"black",fontSize:"20px"}} className="navLinkColor linkColor" href="/">Home</Nav.Link>
       <Nav.Link  style={{color:"black",fontSize:"20px"}} className="navLinkColor linkColor" href="#">about</Nav.Link>
-        <Nav.Link  className="navLinkColor  linkColor" ><Link to="/login"><a className="loginButton btn navButton" href="###"> Sign Up </a></Link></Nav.Link> 
+        <Nav.Link  className="navLinkColor  linkColor" ><Link to="/login"><a className="loginButton btn navButton" href="###"> Create New + </a></Link></Nav.Link> 
     </Nav>
   </Navbar.Collapse>
 </Navbar>

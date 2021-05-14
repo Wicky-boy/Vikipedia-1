@@ -1,3 +1,4 @@
+
 import React,{useState,useEffect} from "react"
 import {Container,Row,Col,Button} from "react-bootstrap"
 import viewSVG from "../image/viewSVG.svg"
@@ -6,13 +7,13 @@ import axios from "axios"
 import {Link} from "react-router-dom"
 
 function View(match){
-    const userName = match.match.params.name
     const id = match.match.params.id
     const index = match.match.params.index
     const [userResponse,setUserResponse] = useState({})
     
     useEffect(()=>{
         getResponse()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     function getResponse(){
         axios.post("/home",{id:id})
@@ -29,7 +30,7 @@ function View(match){
         <div>
         <Row xs={1} md={2}>
                 <Col>
-                <div>
+                <div className="customPadding">
                     <h1 className="heading">{userResponse.name}'s response</h1>
                     <p className="para">hmmm, seems interesting ? </p>
                     <Link to={`/home/${id}`}><Button className="thanksButton">Back 2 Home</Button></Link>

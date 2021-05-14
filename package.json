@@ -5,15 +5,16 @@
   "main": "App.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"cd my-app && npm run build",
-    "install":"cd my-app && npm install",
-    "heroku-postbuild":"npm run install && npm run build",
+    "build": "cd my-app && npm run build",
+    "install": "cd my-app && npm install",
+    "heroku-postbuild": "npm run install && npm run build",
     "dev": "npx nodemon ./src/App.js",
-    "start":" cd src && node App.js"
+    "start": " cd src && node App.js"
   },
   "author": "Wicky",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",

@@ -5,7 +5,7 @@ import {Button,Container,Row,Col} from 'react-bootstrap';
 import registerSVG from "../image/registerSVG.svg"
 import TextField from '@material-ui/core/TextField';
 import Preloader from "./Preloader.js"
-import { set } from "mongoose";
+
 
 function Register({history}){
 
@@ -22,7 +22,6 @@ function Register({history}){
         }
     }
     function registerEventHandler(event){
-        var data = ""
         axios.post("/register",{name:userName,password:userPassword})
         .then((response) =>{    
             setIsRegistered(response.data)

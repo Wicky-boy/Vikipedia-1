@@ -2,7 +2,6 @@ import axios from "axios"
 import React, { useEffect, useState } from "react"
 import {Link} from "react-router-dom"
 import {Container,Row,Col,Button} from "react-bootstrap"
-import Table from 'react-bootstrap/Table'
 import personalDetailsSVG from "../image/personalDetails.svg"
 import Preloader from "./Preloader.js"
 function Home(match){
@@ -11,7 +10,6 @@ function Home(match){
     const [userName,setUserName] = useState("")
     const [userAnswers,setUserAnswers] = useState([])
     const [loading ,setLoading] = useState(true)
-    const [singleReq,setSingleReq] =useState(false)
 
     function getDetails(){
         axios.post("/home",{id:ID})
@@ -19,7 +17,6 @@ function Home(match){
             // console.log(response.data)
             setUserName(response.data.username)
             setUserAnswers(response.data.response)
-            setSingleReq(true)
             setLoading(false)
             
         })
@@ -31,9 +28,10 @@ function Home(match){
     return(
     <div>{loading?<Preloader/> :
      <Container className="personalDetails">
-    <div >
+    <div>
         <Row xs={1} md={2}>
             <Col>
+            <div className="customPadding">
             <h1 className="heading">Hey, Yo {userName}</h1>
             <p className="para">Now you can create new slam and share them with your firends and you could able to see their score in the table</p>
             <Link to={`/home/${ID}/${userName}/create`}>
@@ -42,7 +40,7 @@ function Home(match){
             <div className="tablesDiv">
             <h2 className="subHeading responseHeading">Response </h2>
             
-            {userAnswers.length>0?<div className="tablesDiv">
+            {userAnswers.length>0?<div className="tablesItemDiv">
                     {
                 userAnswers.map((item,index) =>{  
                 return( 
@@ -66,6 +64,7 @@ function Home(match){
             <p className="para">Tips : Create new slam ,Share them with your friends and then come back!</p>
             </div>}
             
+            </div>
             </div>
             </Col>
 

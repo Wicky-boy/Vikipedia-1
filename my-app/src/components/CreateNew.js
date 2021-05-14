@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState,useRef } from "react";
 import {Link} from "react-router-dom";
 import {Container,Row,Col,Button,Overlay,Tooltip } from "react-bootstrap"
@@ -25,6 +24,7 @@ function CreateNew(match){
     return (<div>{loading?<Preloader/> : <Container className="createPageContainer"> 
             <Row xs={1} md={2} className="createNewRow">
                 <Col>
+                <div className="customPadding">
                 <h1 className="heading">CreateNew</h1>
                 <p className="para" > Copy the given link and share it with your friends <br/> Tip:Simply click that <i class="far fa-clipboard clipboard"></i> Clipboard icon to copy </p>
                 <Link to={`/home/${id}`}><Button className="thanksButton">Back 2 Home</Button></Link>
@@ -91,6 +91,7 @@ function CreateNew(match){
 
                     </tbody>
                 </Table>
+            </div>
             </div>
                 </Col>
                 <Col>

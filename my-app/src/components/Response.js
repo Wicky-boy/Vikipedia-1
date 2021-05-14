@@ -190,7 +190,8 @@ function Response(match){
     useEffect(()=>{
        getName() 
        setInterval(setLoading(false),2000)
-    })
+       // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
 
     return(
         <div>{loading?<Preloader/> :

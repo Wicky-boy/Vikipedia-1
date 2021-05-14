@@ -1,10 +1,14 @@
 const express = require("express");
-const App = express();
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const myPlaintextPassword = 's0/\/\P4$$w0rD';
+const someOtherPlaintextPassword = 'not_bacon';
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT|| 5000;
 const cors = require("cors");
 const mongoose = require("mongoose");
 const { response } = require("express");
+const App = express();
 App.use(cors());
 App.use(bodyParser.urlencoded({extended:true}));
 App.use(express.urlencoded({ extended: false }));
@@ -50,16 +54,21 @@ App.post("/fulldetails",(req,res) =>{
 App.post("/login",(req, res) => {
   
   const userName = req.body.name;
-  const userInfo = req.body.password;
-  console.log(userName,userInfo)
-  userDetails.find({username:userName,password:userInfo},(err,foundItem)=>{
-    if(foundItem.length > 0){
-
-      res.send([true,foundItem[0]._id])
-    }else{
-      res.send([false,"You have entered invalid UserName or Password.................."])
-    }
+  const userPassword = req.body.password;
+  console.log(userName,userPassword)
+  userDetails.find({username:userName},(err,foundItem) =>{
+    console.log(foundItem[0].password)
+    const hash = foundItem[0].password
+    bcrypt.compare(userPassword,hash, function(err, result) {
+      console.log(result)
+      if(result){
+        res.send([true,foundItem[0]._id])
+      }else{
+        res.send([false,"You have entered invalid UserName or Password.................."])
+      }
   });
+  })
+
 });
 App.post("/register",(req,res) =>{
   const userName = req.body.name;
@@ -67,9 +76,12 @@ App.post("/register",(req,res) =>{
   userDetails.findOne({username:userName},(err,foundItem) =>{
     if(!err){
       if(!foundItem){
-        userDetails.insertMany({username:userName,password:userPassword,userURLParams:userName+"user123",response:[]},(err) =>{if(!err){user.find({},(err,foundItem) =>{if(!err){
-          res.send("true")
-          console.log("Successfully inserted into Database...")}})}});
+        bcrypt.hash(userPassword, saltRounds, function(err, hash) {
+          console.log(hash)
+          userDetails.insertMany({username:userName,password:hash,userURLParams:userName+"user123",response:[]},(err) =>{if(!err){user.find({},(err,foundItem) =>{if(!err){
+            res.send("true")
+            console.log("Successfully inserted into Database...")}})}});
+      });
       }else{
         res.send("false")
       }

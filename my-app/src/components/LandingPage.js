@@ -52,7 +52,7 @@ function LandingPage(){
         <h2 className="subHeading">This new slam site</h2>
         <p className="para">Hey yo, This is new project which deals with Ultra popular React Framework , Express which is  one of the Node.js's popular Framework and MongoDB which allows you to store upto 512MB in cloud for free of costs  </p>
         <Link to="/register">
-            <Button className="btn navButton" as="input" type="button" value="Create new" />
+            <Button className="btn navButton" as="input" type="button" value="Register now" />
         </Link>
       </div>
       </Col>

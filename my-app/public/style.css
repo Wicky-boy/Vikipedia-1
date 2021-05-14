@@ -106,7 +106,9 @@ Button:focus, input:focus, TextField:focus{
 
 .homepageHeading{
     padding-top: 25%;
+
 }
+
 
 .homepageVector{
     width: 100%;
@@ -326,10 +328,15 @@ p.footerPara{
     /* height: 50px; */
     height: 280px;
     overflow-y: scroll;
-    padding: 0px 10px 0px 30px;
+    padding: 0px 10px 0px 50px;
     border-radius: 25px;
-    background-color: #56ff7ad0;
+
     margin-top: 20px;
+}
+
+.tablesItemDiv{
+    width:100%;
+    background-color: #007bffcc;
 }
 
 .homeResponseItemDiv{
@@ -404,10 +411,15 @@ Button.homeResponseViewButton:focus{
 }
 
 .createPageContainer{
-    padding-top: 100px;
+
+    padding: 100px 0px;
     width: 100%;
     margin-bottom: 240px;
 
+}
+
+div.customPadding{
+    padding: 10px 10px 15px 10px;
 }
 .slideDiv{
     width: 100%;
@@ -639,7 +651,7 @@ Button.thanksButton{
 .viewDiv{
     width:100%;
     height:350px;
-    background-color: #1bff4ca8;
+    background-color: #0687ffa8;
     border-radius: 25px;
     padding: 15px;
     margin: 24px 8px 25px 0px;
