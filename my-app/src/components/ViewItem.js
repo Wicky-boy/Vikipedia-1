@@ -6,7 +6,7 @@ function ViewItem(props){
             <div className="viewItemHeader">
                 <h3 style={{marginBottom:"0px",fontSize:"18px"}}>{props.question}</h3>
                 <hr />
-                <p style={{marginBottom:"0px",fontSize:"12px"}}>{props.answer}</p>
+                <p style={{marginBottom:"0px",fontSize:"15px"}}>{props.answer}</p>
             </div>               
         </div>
     )
