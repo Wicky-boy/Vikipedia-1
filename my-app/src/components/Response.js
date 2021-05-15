@@ -271,8 +271,8 @@ function Response(match){
                         <Carousel.Item >
                         <div className="d-block w-100"><div className="slideDiv">{isSubmitted? <Link to={`/home/${ID}/${userName}/ThankU`}> <Button type="button" className="slideButton">Next</Button> </Link>:<Button type="submit" className="slideButton">Submit</Button>}</div></div>
                             <Carousel.Caption>
-                            <h3>Completed </h3>
-                            <p className="requiredNameDisplay">Yo buddy smash the submit button <br/> <br/></p>
+                            <h3>Confirmation !</h3>
+                            <p style={{fontSize:"10px"}} className="requiredNameDisplay">Note: After clicking the submit button, It will shows the "NEXT" button ,if you answered every question, if not then go back and check the questions<br/> <br/></p>
                             </Carousel.Caption>
                         </Carousel.Item>
                     </Carousel>
