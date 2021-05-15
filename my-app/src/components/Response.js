@@ -208,22 +208,22 @@ function Response(match){
                     <Carousel.Item >
                         <div className="d-block w-100"><div className="slideDiv"> <TextField required  id="inputNameID" onChange={onChangeEventHandler} value={inputValue.name} name="username" color="primary" label="Enter your name" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
                             <Carousel.Caption>
-                            <h3>Detail</h3>
-                            <p>Please enter your name<br/><br/></p>
+                            <h3>Your Name</h3>
+                            <p>Please enter your name <br /> then click this side 👉 </p>
                             </Carousel.Caption>
                         </Carousel.Item>
                     <Carousel.Item >
                         <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q1} name="Q1" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
                             <Carousel.Caption>
                             <h3>1st Question</h3>
-                            <p>What will be your first act if you get 1M dollar?<br/><br/></p>
+                            <p>What will be your first act if you get 1M dollar?</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item >
                         <div className="d-block w-100"><div  className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q2} name="Q2" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
                             <Carousel.Caption>
                             <h3>2nd Question</h3>
-                            <p>What will you do if you're appointed as a supreme politician?</p>
+                            <p>What will you do if you're appointed as a supreme politician? </p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item >
@@ -244,14 +244,14 @@ function Response(match){
                         <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q5} name="Q5" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
                             <Carousel.Caption>
                             <h3>5th Question </h3>
-                            <p>What you'll do when you're frustrated to the core<br/><br/></p>
+                            <p>What you'll do when you're frustrated to the core </p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item >
                         <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q6} name="Q6" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
                             <Carousel.Caption>
                             <h3>6th Question</h3>
-                            <p>How will you spend the last day of your life? <br/><br/> </p>
+                            <p>How will you spend the last day of your life?  </p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item >
@@ -265,7 +265,7 @@ function Response(match){
                         <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q8} name="Q8" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
                             <Carousel.Caption>
                             <h3>8th Question</h3>
-                            <p>If you had three wishes for me, what would it be? <br/><br/></p>
+                            <p>If you had three wishes for me, what would it be? </p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item >
