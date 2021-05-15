@@ -106,7 +106,9 @@ Button:focus, input:focus, TextField:focus{
 
 .homepageHeading{
     padding-top: 25%;
+
 }
+
 
 .homepageVector{
     width: 100%;
@@ -324,11 +326,54 @@ p.footerPara{
 .tablesDiv{
     width:100%;
     /* height: 50px; */
-    height: 250px;
+    height: 280px;
     overflow-y: scroll;
-    padding-bottom: 0px;
+    padding: 0px 10px 0px 50px;
     border-radius: 25px;
+    background-color: #007bffcc;
+    margin-top: 20px;
 }
+
+.tablesItemDiv{
+    width:100%;
+}
+
+.homeResponseItemDiv{
+    display: flex;
+    width:80%;
+    background-color: #ffffffb4;
+    margin: 10px 0px;
+    border-radius: 6px;
+    padding: 8px 7px 8px 7px;
+}
+
+.homeResponseNameDiv{
+    width:80%;
+    padding-top: 6px;
+    padding-left: 6px;
+
+}
+.homeResponseViewDiv{
+    text-align: center;
+    padding-left:  15px;
+    border-left: 2px solid;
+    height: auto;
+    padding-bottom:0px;
+    padding-top: 5px;
+    
+}
+.homeResponseNameText{
+    margin-top: 10px;
+}
+Button.homeResponseViewButton{
+    background-color:rgba(119, 119, 119, 0.712);
+    border: 0px;
+    
+}
+Button.homeResponseViewButton:focus{
+    visibility: hidden;
+}
+
 .tablesDiv::-webkit-scrollbar {
     display: none;
 }
@@ -350,6 +395,10 @@ p.footerPara{
 .responseHeading{
     margin: 20px 0px;
 }
+.homeResponseDiv{
+    background-color: #007bff;
+    border-radius: 25px;
+}
 
 /* Home section ending */
 
@@ -361,27 +410,43 @@ p.footerPara{
 }
 
 .createPageContainer{
-    padding-top: 100px;
+
+    padding: 100px 0px;
     width: 100%;
     margin-bottom: 240px;
 
 }
+
+div.customPadding{
+    padding: 10px 10px 15px 10px;
+}
+.slideDiv{
+    width: 100%;
+    height:280px;
+    background-color:rgb(47, 137, 255);
+    text-align: center;
+    padding-top: 3em;
+    font-family: 'Montserrat', sans-serif;
+}
+Button.slideButton{
+    background-color: white ;
+    color:rgb(47, 137, 255);
+    font-weight: 700;
+    padding: 15px 50px;
+    border-radius: 25px;
+    border: 0px;
+}
 .createNewDiv{
     width: 100%;
-    height: 300px;
+    height: 280px;
     overflow-y: scroll;
     background-color: #dadada;
-    padding:20px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    border-radius: 25px;
+    border-radius: 20px;
 }
 .createNewDiv::-webkit-scrollbar {
     display: none;
 }
-.createNewSVG{
-    margin-top: 50px;
-}
+
 .createNewRow{
     margin-top: 20px;
 }
@@ -389,6 +454,7 @@ p.footerPara{
     display:block;
     margin-top: 15px;
 }
+
 
 
 
@@ -551,3 +617,82 @@ Button.clipCopyButton{
     margin: 10px 0px;
 }
 /* Result section Ending */
+
+
+/* Thanks section starting */
+.thanksColDiv{
+    width: 100%;
+    height:100%;
+}
+.thanksColText{
+    padding-top:80px;
+}
+.thanksContainer{
+    padding-top: 50px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+div.col{
+    padding:0px
+}
+.thanksDiv{
+    padding:10px;
+}
+Button.thanksButton{
+    padding:15px 30px;
+    border-radius: 25px;
+    font-weight: 700;
+}
+
+/* Thanks section ending */
+
+/* View Section Starting */
+.viewDiv{
+    width:100%;
+    height:350px;
+    background-color: #0687ffa8;
+    border-radius: 25px;
+    padding: 15px;
+    margin: 24px 8px 25px 0px;
+    overflow-y: scroll;
+}
+.viewDiv::-webkit-scrollbar {
+    display: none;
+}
+.viewItemDev{
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+.viewItemHeader{
+    padding: 10px 20px;
+    background-color: rgba(219, 219, 219, 0.795);
+    margin-bottom: 0px;
+    border-radius: 25px;
+
+}
+
+.viewContainer{
+    margin-bottom: 100px;
+}
+
+/* View Section ending */
+
+
+
+
+
+
+
+@media screen and (max-width: 320px){
+    .navTitle{
+        font-size: 25px ;
+    }
+    .BETA{
+        font-size: 5px ;
+    }
+    .logo{
+        width:30px;
+        height: 30px;
+    }
+}

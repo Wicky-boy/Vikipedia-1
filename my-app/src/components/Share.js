@@ -7,7 +7,7 @@ import CopyText from "./CopyText.js"
 import Preloader from "./Preloader.js"
 
 
-function UserDetails(match){
+function Share(match){
     const userID = match.match.params.id
     const indexNumber = match.match.params.index
     const path="https://vikipedia-1.herokuapp.com/#/home/"+userID+"/"+indexNumber+"/response"
@@ -148,5 +148,5 @@ function UserDetails(match){
     
 }
 
-export default UserDetails;
+export default Share;
 

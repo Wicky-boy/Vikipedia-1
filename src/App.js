@@ -1,10 +1,14 @@
 const express = require("express");
-const App = express();
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const myPlaintextPassword = 's0/\/\P4$$w0rD';
+const someOtherPlaintextPassword = 'not_bacon';
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT|| 5000;
 const cors = require("cors");
 const mongoose = require("mongoose");
 const { response } = require("express");
+const App = express();
 App.use(cors());
 App.use(bodyParser.urlencoded({extended:true}));
 App.use(express.urlencoded({ extended: false }));
@@ -24,7 +28,6 @@ const userInfoSchema ={
   username:String,
   password:String,
   userURLParams:String,
-  userAnswer:[],
   response:[]
 }
 
@@ -48,30 +51,92 @@ App.post("/fulldetails",(req,res) =>{
   })
 });
 
+
 App.post("/login",(req, res) => {
   
   const userName = req.body.name;
-  const userInfo = req.body.password;
-  console.log(userName,userInfo)
-  userDetails.find({username:userName,password:userInfo},(err,foundItem)=>{
-    if(foundItem.length > 0){
-
-      res.send([true,foundItem[0]._id])
-    }else{
-      res.send([false,"You have entered invalid UserName or Password.................."])
+  const userPassword = req.body.password;
+  console.log(userName,userPassword)
+  userDetails.find({username:userName,password:userPassword},(err,foundItem) =>{
+    if(!err){
+      if(foundItem){
+        res.send([true,foundItem[0]._id])
+      }else if(err){
+        res.send([false,"You have entered invalid UserName or Password.................."])
+      }
+    }else if(err){
+      console.log(err)
     }
   });
 });
 App.post("/register",(req,res) =>{
   const userName = req.body.name;
   const userPassword = req.body.password;
-  userDetails.insertMany({username:userName,password:userPassword,userURLParams:userName+"user123",userAnswer:[],response:[]},(err) =>{if(!err){user.find({},(err,foundItem) =>{if(!err){
-    res.send("the userID : "+userName+" and password : "+userPassword+" has been successfully inserted into DB")
-    console.log("Successfully inserted into Database...")}})}})
-});
+  userDetails.findOne({username:userName},(err,foundItem) =>{
+    if(!err){
+      if(!foundItem){
+          userDetails.insertMany({username:userName,password:userPassword,userURLParams:userName+"user123",response:[]},(err) =>{if(!err){user.find({},(err,foundItem) =>{if(!err){
+            res.send("true")
+            console.log("Successfully inserted into Database...")}})}});
+      }else{
+        res.send("false")
+      }
+    }else{
+      console.log(err)
+    }
+
+  })
+})
+
+
+
+
+
+
+// App.post("/login",(req, res) => {
+  
+//   const userName = req.body.name;
+//   const userPassword = req.body.password;
+//   console.log(userName,userPassword)
+//   userDetails.find({username:userName},(err,foundItem) =>{
+//     console.log(foundItem[0].password)
+//     const hash = foundItem[0].password
+//     bcrypt.compare(userPassword,hash, function(err, result) {
+//       console.log(result)
+//       if(result){
+//         res.send([true,foundItem[0]._id])
+//       }else{
+//         res.send([false,"You have entered invalid UserName or Password.................."])
+//       }
+//   });
+//   })
+
+// });
+// App.post("/register",(req,res) =>{
+//   const userName = req.body.name;
+//   const userPassword = req.body.password;
+//   userDetails.findOne({username:userName},(err,foundItem) =>{
+//     if(!err){
+//       if(!foundItem){
+//         bcrypt.hash(userPassword, saltRounds, function(err, hash) {
+//           console.log(hash)
+//           userDetails.insertMany({username:userName,password:hash,userURLParams:userName+"user123",response:[]},(err) =>{if(!err){user.find({},(err,foundItem) =>{if(!err){
+//             res.send("true")
+//             console.log("Successfully inserted into Database...")}})}});
+//       });
+//       }else{
+//         res.send("false")
+//       }
+//     }else{
+//       console.log(err)
+//     }
+
+//   })
+// })
 
 App.post("/home",(req,res)=>{
   const userID = req.body.id
+  console.log("Got called by getDetails")
   userDetails.findOne({_id:userID},(err,foundItem) =>{
       if(foundItem){
         res.send(foundItem)
@@ -81,42 +146,6 @@ App.post("/home",(req,res)=>{
   })
 });
 
-App.post("/questionanswer",(req,res) =>{
-  const ID = req.body.details.id
-  const value = req.body.details.answer
-  userDetails.updateOne({_id:ID},{$push:{userAnswer:value}},(err) =>{
-    if (!err) {
-      res.send("Updated successfully")
-    }else{
-      res.send(err)
-    }
-  })
-});
-App.post("/response",(req,res) =>{
-  const ID = req.body.details.id
-  const value = req.body.details.answer
-  userDetails.updateOne({_id:ID},{$push:{response:value}},(err) =>{
-    if (!err) {
-      res.send("Updated successfully")
-    }else{
-      res.send(err)
-    }
-  })
-});
-
-App.post("/score",(req,res) =>{
-  const ID = req.body.id
-  const score = req.body.score
-  const Index = req.body.index
-  const name = req.body.name
-  userDetails.updateOne(
-    { _id:ID, "response.Name": name },
-    { $set: { "response.$.score" : score } },(err) =>{
-      console.log("Successfully updated....")
-    }
- )
-  console.log(ID,Index,score)
-});
 
 App.post("/opinion",(req,res)=>{
   const newOpinion = req.body.opinion;
@@ -131,6 +160,19 @@ App.post("/opinion",(req,res)=>{
   })
 })
 
+App.post("/response",(req,res)=>{
+  const id = req.body.id
+  const data = req.body.data
+  userDetails.updateMany({_id:id},{$push:{response:data}},(err) =>{
+    if(!err){
+      res.send("you data has been inserted succesfully")
+    }else{
+      console.log(err)
+      res.send("ERROR")
+    }
+  })
+})
+
 
 if(process.env.NODE_ENV ==="production"){
   App.use(express.static("../my-app/build"));
@@ -138,4 +180,4 @@ if(process.env.NODE_ENV ==="production"){
 
 App.listen(PORT, () => console.log("Server started on  port "+PORT));
 
-  
+

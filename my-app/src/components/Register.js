@@ -6,11 +6,14 @@ import registerSVG from "../image/registerSVG.svg"
 import TextField from '@material-ui/core/TextField';
 import Preloader from "./Preloader.js"
 
+
 function Register({history}){
 
     const [userName,setUserName] = useState("");
     const [userPassword,setUserPassword] = useState("")
     const [loading ,setLoading] = useState(true)
+    const [isRegistered,setIsRegistered] = useState(false)
+    const [isRegisteredinBE,setIsRegisteredinBE] = useState(true)
     function registerInputOnChangeEventHandler(event){
         if(event.target.name === "userName"){
             setUserName(event.target.value);
@@ -20,11 +23,12 @@ function Register({history}){
     }
     function registerEventHandler(event){
         axios.post("/register",{name:userName,password:userPassword})
-        .then((response) =>{
-            console.log(response.data)
+        .then((response) =>{    
+            setIsRegistered(response.data)
+            setIsRegisteredinBE(response.data)
         })
-        .then((res)=>{history.push("/login")})
         .catch((err) =>{console.log(err)})
+
         event.preventDefault();
     }
     useEffect(()=>{
@@ -47,7 +51,8 @@ function Register({history}){
                     <TextField onChange={registerInputOnChangeEventHandler} name="userPassword" className="registerInput2" id="outlined-basic2" label="Create Password" variant="outlined" value={userPassword}></TextField>
                     <br/>
                     <br/>
-                    <Button className="navButton btn" type="submit">Register</Button>
+                    {isRegistered ? <Link to="/login"> <Button className="navButton btn" type="button">Login</Button> </Link>: <Button className="navButton btn" type="submit">Register</Button>}
+                    {isRegisteredinBE ? null : <p style={{color:"red",paddingTop:"10px"}} className="para">This name have been already taken</p>}
                 </form>
                 <hr className="registerpagesHR"/>
                 <p className="para">Already have an account ? [<Link to="login"><a className="registerPagesLogin" href="/login">Login</a>]</Link> </p>

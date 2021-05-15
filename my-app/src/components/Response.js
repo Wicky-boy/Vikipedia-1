@@ -3,20 +3,29 @@ import React, { useEffect, useState } from "react";
 import {Link} from "react-router-dom"
 import {Container,Row,Col,Button} from "react-bootstrap"
 import responseSVG from "../image/responseSVG.svg"
-import selectionButtonFunction2 from "./Function2"
 import TextField from '@material-ui/core/TextField';
 import Preloader from "./Preloader.js"
+import Carousel from 'react-bootstrap/Carousel'
+
 
 function Response(match){
     const ID = match.match.params.id
-    const Index1 = match.match.params.index
     const [userName,setUserName]= useState("")
-    const [inputValue,setInputValue] = useState("")
     const [isSubmitted,setIsSubmitted] = useState(false)
-    const [loading ,setLoading] = useState(true)
+    const [inputValue,setInputValue] = useState({
+        name:"",
+        q1:"",
+        q2:"",
+        q3:"",
+        q4:"",
+        q5:"",
+        q6:"",
+        q7:"",
+        q8:""
+    })
+    const [loading ,setLoading] = useState(false)
 
-
-    async function getQuestion(){
+    async function getName(){
         await axios.post("/home",{id:ID})
         .then((response) =>{
             setUserName(response.data.username)
@@ -24,189 +33,166 @@ function Response(match){
         .then((res)=>{setLoading(false)})
     } 
 
-    const [answerValue,setAnswerValue] = useState({
-        Name:"",
-        Question1:"",
-        Question2:"",
-        Question3:"",
-        Question4:"",
-        Question5:"",
-        Question6:"",
-        Question7:"",
-        Question8:"",
-        score:0
-    })
-    const [answerIndex,setAnswerIndex]=useState(0)
-
-    function answerHandler(event){
-        const questionName = event.target.name;
-        const questionValue = event.target.value;
-        console.log(questionName,questionValue)
-        if(questionName==="q1"){
-            setAnswerValue((previousValue) =>{
-
-               return {
-                    Name:inputValue,
-                    Question1:questionValue,
-                    Question2:previousValue.Question2,
-                    Question3:previousValue.Question3,
-                    Question4:previousValue.Question4,
-                    Question5:previousValue.Question5,
-                    Question6:previousValue.Question6,
-                    Question7:previousValue.Question7,
-                    Question8:previousValue.Question8,
-                    score:previousValue.score
-                }
-            })
-        }else if(questionName==="q2"){
-            setAnswerValue((previousValue) =>{
-     
-                return {
-                    Name:inputValue,
-                    Question1:previousValue.Question1,
-                    Question2:questionValue,
-                    Question3:previousValue.Question3,
-                    Question4:previousValue.Question4,
-                    Question5:previousValue.Question5,
-                    Question6:previousValue.Question6,
-                    Question7:previousValue.Question7,
-                    Question8:previousValue.Question8,
-                    score:previousValue.score
-                 }
-             })
-        }else if(questionName==="q3"){
-            setAnswerValue((previousValue) =>{
-     
-                return {
-                    Name:inputValue,
-                    Question1:previousValue.Question1,
-                    Question2:previousValue.Question2,
-                    Question3:questionValue,
-                    Question4:previousValue.Question4,
-                    Question5:previousValue.Question5,
-                    Question6:previousValue.Question6,
-                    Question7:previousValue.Question7,
-                    Question8:previousValue.Question8,
-                    score:previousValue.score
-                 }
-             })
-        }else if(questionName==="q4"){
-            setAnswerValue((previousValue) =>{
-     
-                return {
-                    Name:inputValue,
-                    Question1:previousValue.Question1,
-                    Question2:previousValue.Question2,
-                    Question3:previousValue.Question3,
-                    Question4:questionValue,
-                    Question5:previousValue.Question5,
-                    Question6:previousValue.Question6,
-                    Question7:previousValue.Question7,
-                    Question8:previousValue.Question8,
-                    score:previousValue.score
-                 }
-             })
-        }else if(questionName==="q5"){
-            setAnswerValue((previousValue) =>{
-     
-                return {
-                    Name:inputValue,
-                    Question1:previousValue.Question1,
-                    Question2:previousValue.Question2,
-                    Question3:previousValue.Question3,
-                    Question4:previousValue.Question4,
-                    Question5:questionValue,
-                    Question6:previousValue.Question6,
-                    Question7:previousValue.Question7,
-                    Question8:previousValue.Question8,
-                    score:previousValue.score
-                 }
-             })
-        }else if(questionName==="q6"){
-            setAnswerValue((previousValue) =>{
-     
-                return {
-                    Name:inputValue,
-                    Question1:previousValue.Question1,
-                    Question2:previousValue.Question2,
-                    Question3:previousValue.Question3,
-                    Question4:previousValue.Question4,
-                    Question5:previousValue.Question5,
-                    Question6:questionValue,
-                    Question7:previousValue.Question7,
-                    Question8:previousValue.Question8,
-                    score:previousValue.score
-                 }
-             })
-        }else if(questionName==="q7"){
-            setAnswerValue((previousValue) =>{
-     
-                return {
-                    Name:inputValue,
-                    Question1:previousValue.Question1,
-                    Question2:previousValue.Question2,
-                    Question3:previousValue.Question3,
-                    Question4:previousValue.Question4,
-                    Question5:previousValue.Question5,
-                    Question6:previousValue.Question6,
-                    Question7:questionValue,
-                    Question8:previousValue.Question8,
-                    score:previousValue.score
-                 }
-             })
-        }else if(questionName==="q8"){
-            setAnswerValue((previousValue) =>{
-     
-                return {
-                    Name:inputValue,
-                    Question1:previousValue.Question1,
-                    Question2:previousValue.Question2,
-                    Question3:previousValue.Question3,
-                    Question4:previousValue.Question4,
-                    Question5:previousValue.Question5,
-                    Question6:previousValue.Question6,
-                    Question7:previousValue.Question7,
-                    Question8:questionValue,
-                    score:previousValue.score
-                 }
-             })
-        } 
-        console.log(answerValue)
-    }
-    function getLength(){
-        axios.post("/fulldetails",{id:ID})
-        .then((response) =>{
-            setAnswerIndex(response.data[0].response.length-1)
-            console.log(answerIndex)
-        })
-    }
-
-    function answerPostHandler(events){   
-
-          console.log(answerValue)
-        axios.post("/response",{details:{id:ID,answer:answerValue}})
-        .then((response) =>{
-            console.log(response.data)
-            getLength()
-            // const path1 = ID
-            // const path2 = Index1
-            // const path3 = answerIndex
-            // match.history.push()
-
-        })
-        events.preventDefault()
-    }
-
     function onChangeEventHandler(event){
+        const name = event.target.name
         const value = event.target.value
-        setInputValue(value)
-        console.log(inputValue)
-    }
-    useEffect(()=>{
-       getQuestion() 
-       selectionButtonFunction2()
-    })
+        setInputValue((preVal) =>{
+            if(name==="username"){
+                return(
+                    {     
+                        name:value,
+                        q1:preVal.q1,
+                        q2:preVal.q2,
+                        q3:preVal.q3,
+                        q4:preVal.q4,
+                        q5:preVal.q5,
+                        q6:preVal.q6,
+                        q7:preVal.q7,
+                        q8:preVal.q8
+                        
+                    }
+                )
+            }else if(name==="Q1"){
+                return(
+                    {   
+                        
+                        name:preVal.name,
+                        q1:value,
+                        q2:preVal.q2,
+                        q3:preVal.q3,
+                        q4:preVal.q4,
+                        q5:preVal.q5,
+                        q6:preVal.q6,
+                        q7:preVal.q7,
+                        q8:preVal.q8
+                        
+                    })
+            }else if(name==="Q2"){
+                return(
+                    {   
+                        
+                        name:preVal.name,
+                        q1:preVal.q1,
+                        q2:value,
+                        q3:preVal.q3,
+                        q4:preVal.q4,
+                        q5:preVal.q5,
+                        q6:preVal.q6,
+                        q7:preVal.q7,
+                        q8:preVal.q8
+                        
+                    })
+            }else if(name==="Q3"){
+                return(
+                    {   
+                        
+                        name:preVal.name,
+                        q1:preVal.q1,
+                        q2:preVal.q2,
+                        q3:value,
+                        q4:preVal.q4,
+                        q5:preVal.q5,
+                        q6:preVal.q6,
+                        q7:preVal.q7,
+                        q8:preVal.q8
+                        
+                    })
+            }else if(name==="Q4"){
+                return(
+                    {   
+                        
+                        name:preVal.name,
+                        q1:preVal.q1,
+                        q2:preVal.q2,
+                        q3:preVal.q3,
+                        q4:value,
+                        q5:preVal.q5,
+                        q6:preVal.q6,
+                        q7:preVal.q7,
+                        q8:preVal.q8
+                        
+                    })
+            }else if(name==="Q5"){
+                return(
+                    {   
+                        
+                        name:preVal.name,
+                        q1:preVal.q1,
+                        q2:preVal.q2,
+                        q3:preVal.q3,
+                        q4:preVal.q4,
+                        q5:value,
+                        q6:preVal.q6,
+                        q7:preVal.q7,
+                        q8:preVal.q8
+                        
+                    })
+            }else if(name==="Q6"){
+                return(
+                    {   
+                        
+                        name:preVal.name,
+                        q1:preVal.q1,
+                        q2:preVal.q2,
+                        q3:preVal.q3,
+                        q4:preVal.q4,
+                        q5:preVal.q5,
+                        q6:value,
+                        q7:preVal.q7,
+                        q8:preVal.q8
+                        
+                    })
+            }else if(name==="Q7"){
+                return(
+                    {   
+                        
+                        name:preVal.name,
+                        q1:preVal.q1,
+                        q2:preVal.q2,
+                        q3:preVal.q3,
+                        q4:preVal.q4,
+                        q5:preVal.q5,
+                        q6:preVal.q6,
+                        q7:value,
+                        q8:preVal.q8
+                        
+                    })
+            }else if(name==="Q8"){
+                return(
+                    {   
+                        
+                        name:preVal.name,
+                        q1:preVal.q1,
+                        q2:preVal.q2,
+                        q3:preVal.q3,
+                        q4:preVal.q4,
+                        q5:preVal.q5,
+                        q6:preVal.q6,
+                        q7:preVal.q7,
+                        q8:value
+                        
+                    })
+            }
+        })
 
+    }
+
+    function responsePostHandler(event){
+        axios.post("/response",{id:ID,data:inputValue})
+        .then((res) =>{
+            console.log("Done")
+        })
+        .then(()=>{setIsSubmitted(true)})
+        event.preventDefault()
+        
+    }
+    
+
+    useEffect(()=>{
+       getName() 
+       setInterval(setLoading(false),2000)
+       // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
     return(
         <div>{loading?<Preloader/> :
         <Container className="responseContainer">
@@ -217,54 +203,81 @@ function Response(match){
                 <h2 className="subHeading">You are responding to {userName}</h2>
                 <p className="para">if you wish to create your slam,then get back to home page, create and share</p>
                 <div className="createNewDiv">
-                <form autoComplete="off" onSubmit={answerPostHandler}>
-                    <label className="subHeading questionHeading">Enter your name :</label>
-                    <TextField id="standard-basic" label="Enter your name" onChange={onChangeEventHandler} name="peopleName"  value={inputValue} />
-                    <label className="subHeading questionHeading">Which Phone Do {userName} like?</label>
-                        <button className="selectionButton1 appleIphone1 " type="button" onClick={answerHandler} name="q1" value="Apple Iphone" >Apple Iphone</button>
-                        <button className="selectionButton1 android1 " type="button" onClick={answerHandler} name="q1" value="Android" >Android</button>
-                        <button className="selectionButton1 nokia11001" type="button" onClick={answerHandler} name="q1" value="Nokia 1100" >Nokia 1100</button>
-                        <button className="selectionButton1 windows1" type="button" onClick={answerHandler} name="q1" value="Windows" >Windows</button>
-                    <label className="subHeading questionHeading" > Which is {userName}'s Favorite [veg or non-veg]</label>
-                        <button className="selectionButton1 nonVeg1" type="button" onClick={answerHandler} name="q2" value="Non-veg">Non-Veg</button>
-                        <button className="selectionButton1 veg1" type="button" onClick={answerHandler} name="q2" value="Veg">Veg</button>
-                    <label className="subHeading questionHeading">Which is {userName}'s fav movie genre</label>
-                        <button className="selectionButton1 romance1" type="button" onClick={answerHandler} name="q3" value="Romance" >Romance</button>
-                        <button className="selectionButton1 horror1" type="button" onClick={answerHandler} name="q3" value="Horror" >Horror</button>
-                        <button className="selectionButton1 action1" type="button" onClick={answerHandler} name="q3" value="Action" >Action</button>
-                        <button className="selectionButton1 comedy1" type="button" onClick={answerHandler} name="q3" value="Comedy" >Comedy</button>
-                        <button className="selectionButton1 fantasy1" type="button" onClick={answerHandler} name="q3" value="Fantasy" >Fantasy</button>
-                        <button className="selectionButton1 anythingElse1" type="button" onClick={answerHandler} name="q3" value="Anything else" >Anything else</button>
-                    <label className="subHeading questionHeading">How {userName} likes to travel in day to day life</label>
-                        <button className="selectionButton1 Bike1" type="button" onClick={answerHandler} name="q4" value="Bike" >Bike</button>
-                        <button className="selectionButton1 Bicycle1" type="button" onClick={answerHandler} name="q4" value="Bicycle" >Bicycle</button>
-                        <button className="selectionButton1 Bus1" type="button" onClick={answerHandler} name="q4" value="Bus" >Bus</button>
-                        <button className="selectionButton1 Train1" type="button" onClick={answerHandler} name="q4" value="Train" >Train</button>
-                        <button className="selectionButton1 Car1" type="button" onClick={answerHandler} name="q4" value="Car" >Car</button>
-                        <button className="selectionButton1 Flight1" type="button" onClick={answerHandler} name="q4" value="Flight" >Flight</button>
-                    <label className="subHeading questionHeading">Which is one thing/activity that makes {userName} relax?</label>
-                        <button className="selectionButton1 listeningMusic1" type="button" onClick={answerHandler} name="q5" value="Listening Music" >Listening Music</button>
-                        <button className="selectionButton1 goForDrive1" type="button" onClick={answerHandler} name="q5" value="Go for Drive" >Go for Drive</button>
-                        <button className="selectionButton1 Sleeping1" type="button" onClick={answerHandler} name="q5" value="Sleeping" >Sleeping</button>
-                        <button className="selectionButton1 Reading1" type="button" onClick={answerHandler} name="q5" value="Reading" >Reading</button>
-                    <label className="subHeading questionHeading">Do {userName} wear glasses</label>
-                        <button className="selectionButton1 Yes1" type="button" onClick={answerHandler} name="q6" value="Yes" >Yes</button>
-                        <button className="selectionButton1 No1" type="button" onClick={answerHandler} name="q6" value="No" >No</button>
-                    <label className="subHeading questionHeading">How {userName} likes to Click Pictures</label>
-                        <button className="selectionButton1 Pose1" type="button" onClick={answerHandler} name="q7" value="Pose" >Pose</button>
-                        <button className="selectionButton1 Selfi1" type="button" onClick={answerHandler} name="q7" value="Selfi" >Selfi</button>
-                    <label className="subHeading questionHeading">Which type of shopping {userName} prefers the most</label>
-                        <button className="selectionButton1 Traditional1" type="button" onClick={answerHandler} name="q8" value="Traditional" >Traditional</button>
-                        <button className="selectionButton1 onlineShopping1" type="button" onClick={answerHandler} name="q8" value="Online Shopping" >Online Shopping</button>
-                        <div>
-                            <Button className="customCreateNewButton" onClick={()=>{setIsSubmitted(true)}} type="submit">submit</Button>
-                        </div>
-                </form>
-
+                    <form autocomplete="off" onSubmit={responsePostHandler}>
+                    <Carousel fade="true" interval={null} >
+                    <Carousel.Item >
+                        <div className="d-block w-100"><div className="slideDiv"> <TextField required  id="inputNameID" onChange={onChangeEventHandler} value={inputValue.name} name="username" color="primary" label="Enter your name" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                            <Carousel.Caption>
+                            <h3>Your Name</h3>
+                            <p>Please enter your name <br /> then click this side 👉 </p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                    <Carousel.Item >
+                        <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q1} name="Q1" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                            <Carousel.Caption>
+                            <h3>1st Question</h3>
+                            <p>What will be your first act if you get 1M dollar?</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item >
+                        <div className="d-block w-100"><div  className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q2} name="Q2" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                            <Carousel.Caption>
+                            <h3>2nd Question</h3>
+                            <p>What will you do if you're appointed as a supreme politician? </p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item >
+                        <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q3}  name="Q3" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                            <Carousel.Caption>
+                            <h3>3rd Question</h3>
+                            <p>If god decides to give you a boon, what would you ask him?</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item >
+                        <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q4} name="Q4" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                            <Carousel.Caption>
+                            <h3>4th Question</h3>
+                            <p>If you get a time machine, with whom you wanna spend some time?</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item >
+                        <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q5} name="Q5" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                            <Carousel.Caption>
+                            <h3>5th Question </h3>
+                            <p>What you'll do when you're frustrated to the core </p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item >
+                        <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q6} name="Q6" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                            <Carousel.Caption>
+                            <h3>6th Question</h3>
+                            <p>How will you spend the last day of your life?  </p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item >
+                        <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q7} name="Q7" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                            <Carousel.Caption>
+                            <h3>7th Question</h3>
+                            <p>If you got a chance to sneek into a person's secret life who would it be?</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item >
+                        <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q8} name="Q8" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                            <Carousel.Caption>
+                            <h3>8th Question</h3>
+                            <p>If you had three wishes for me, what would it be? </p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item >
+                        <div className="d-block w-100"><div className="slideDiv">{isSubmitted? <Link to={`/home/${ID}/${userName}/ThankU`}> <Button type="button" className="slideButton">Next</Button> </Link>:<Button type="submit" className="slideButton">Submit</Button>}</div></div>
+                            <Carousel.Caption>
+                            <h3>Confirmation !</h3>
+                            <p style={{fontSize:"10px"}} className="requiredNameDisplay">Note: After clicking the submit button, It will shows the "NEXT" button ,if you answered every question, if not then go back and check the questions<br/> <br/></p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                    </Carousel>
+                    </form>
                 </div>
-                {isSubmitted && <Link to={`/home/${ID}/${Index1}/${answerIndex}/result`}>
-                        <Button style={{backgroundColor:"purple",border:"0px"}} className="customCreateNewButton">Click me to enter</Button>
-                    </Link>}
                 </div>
             </Col>
             <Col>
