@@ -58,11 +58,15 @@ App.post("/login",(req, res) => {
   const userPassword = req.body.password;
   console.log(userName,userPassword)
   userDetails.find({username:userName,password:userPassword},(err,foundItem) =>{
+    if(!err){
       if(foundItem){
         res.send([true,foundItem[0]._id])
-      }else{
+      }else if(err){
         res.send([false,"You have entered invalid UserName or Password.................."])
       }
+    }else if(err){
+      console.log(err)
+    }
   });
 });
 App.post("/register",(req,res) =>{

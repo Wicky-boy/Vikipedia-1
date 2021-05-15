@@ -23,13 +23,16 @@ function Login({history}) {
     setSecondInputValue(event.target.value)
 
   }
-   function onClickEventHandler(event){
-    axios.post("/login",{name:firstInputValue,password:secondInputValue})
+   async function onClickEventHandler(event){
+    await axios.post("/login",{name:firstInputValue,password:secondInputValue})
     .then((response) => {
       setLoginInfo(response.data[0])
       setLoginMessage("Please enter correct username and password")
       setUserID(response.data[1])
     }) 
+    .catch(err =>{
+      console.log(err)
+    })
 
     event.preventDefault();  
 
