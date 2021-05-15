@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import Preloader from "./Preloader.js"
 import Carousel from 'react-bootstrap/Carousel'
 
+
 function Response(match){
     const ID = match.match.params.id
     const [userName,setUserName]= useState("")
@@ -192,7 +193,6 @@ function Response(match){
        setInterval(setLoading(false),2000)
        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
-
     return(
         <div>{loading?<Preloader/> :
         <Container className="responseContainer">
@@ -206,63 +206,63 @@ function Response(match){
                     <form autocomplete="off" onSubmit={responsePostHandler}>
                     <Carousel fade="true" interval={null} >
                     <Carousel.Item >
-                        <div className="d-block w-100"><div className="slideDiv"> <TextField onChange={onChangeEventHandler} value={inputValue.name} name="username" color="primary" label="Enter your name" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                        <div className="d-block w-100"><div className="slideDiv"> <TextField required  id="inputNameID" onChange={onChangeEventHandler} value={inputValue.name} name="username" color="primary" label="Enter your name" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
                             <Carousel.Caption>
                             <h3>Detail</h3>
                             <p>Please enter your name<br/><br/></p>
                             </Carousel.Caption>
                         </Carousel.Item>
                     <Carousel.Item >
-                        <div className="d-block w-100"><div className="slideDiv"> <TextField onChange={onChangeEventHandler} value={inputValue.Q1} name="Q1" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                        <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q1} name="Q1" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
                             <Carousel.Caption>
                             <h3>1st Question</h3>
                             <p>What will be your first act if you get 1M dollar?<br/><br/></p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item >
-                        <div className="d-block w-100"><div  className="slideDiv"> <TextField onChange={onChangeEventHandler} value={inputValue.Q2} name="Q2" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                        <div className="d-block w-100"><div  className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q2} name="Q2" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
                             <Carousel.Caption>
                             <h3>2nd Question</h3>
                             <p>What will you do if you're appointed as a supreme politician?</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item >
-                        <div className="d-block w-100"><div className="slideDiv"> <TextField onChange={onChangeEventHandler} value={inputValue.Q3}  name="Q3" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                        <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q3}  name="Q3" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
                             <Carousel.Caption>
                             <h3>3rd Question</h3>
                             <p>If god decides to give you a boon, what would you ask him?</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item >
-                        <div className="d-block w-100"><div className="slideDiv"> <TextField onChange={onChangeEventHandler} value={inputValue.Q4} name="Q4" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                        <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q4} name="Q4" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
                             <Carousel.Caption>
                             <h3>4th Question</h3>
                             <p>If you get a time machine, with whom you wanna spend some time?</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item >
-                        <div className="d-block w-100"><div className="slideDiv"> <TextField onChange={onChangeEventHandler} value={inputValue.Q5} name="Q5" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                        <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q5} name="Q5" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
                             <Carousel.Caption>
                             <h3>5th Question </h3>
                             <p>What you'll do when you're frustrated to the core<br/><br/></p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item >
-                        <div className="d-block w-100"><div className="slideDiv"> <TextField onChange={onChangeEventHandler} value={inputValue.Q6} name="Q6" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                        <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q6} name="Q6" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
                             <Carousel.Caption>
                             <h3>6th Question</h3>
                             <p>How will you spend the last day of your life? <br/><br/> </p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item >
-                        <div className="d-block w-100"><div className="slideDiv"> <TextField onChange={onChangeEventHandler} value={inputValue.Q7} name="Q7" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                        <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q7} name="Q7" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
                             <Carousel.Caption>
                             <h3>7th Question</h3>
                             <p>If you got a chance to sneek into a person's secret life who would it be?</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item >
-                        <div className="d-block w-100"><div className="slideDiv"> <TextField onChange={onChangeEventHandler} value={inputValue.Q8} name="Q8" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
+                        <div className="d-block w-100"><div className="slideDiv"> <TextField required  onChange={onChangeEventHandler} value={inputValue.Q8} name="Q8" color="primary" label="Type your answer" autoFocus="true" id="outlined-basic" variant="outlined" /></div></div>
                             <Carousel.Caption>
                             <h3>8th Question</h3>
                             <p>If you had three wishes for me, what would it be? <br/><br/></p>
@@ -272,7 +272,7 @@ function Response(match){
                         <div className="d-block w-100"><div className="slideDiv">{isSubmitted? <Link to={`/home/${ID}/${userName}/ThankU`}> <Button type="button" className="slideButton">Next</Button> </Link>:<Button type="submit" className="slideButton">Submit</Button>}</div></div>
                             <Carousel.Caption>
                             <h3>Completed </h3>
-                            <p>Yo buddy smash the submit button <br/> <br/></p>
+                            <p className="requiredNameDisplay">Yo buddy smash the submit button <br/> <br/></p>
                             </Carousel.Caption>
                         </Carousel.Item>
                     </Carousel>
