@@ -93,46 +93,46 @@ App.post("/register",(req,res) =>{
 
 
 
-// App.post("/login",(req, res) => {
+App.post("/login",(req, res) => {
   
-//   const userName = req.body.name;
-//   const userPassword = req.body.password;
-//   console.log(userName,userPassword)
-//   userDetails.find({username:userName},(err,foundItem) =>{
-//     console.log(foundItem[0].password)
-//     const hash = foundItem[0].password
-//     bcrypt.compare(userPassword,hash, function(err, result) {
-//       console.log(result)
-//       if(result){
-//         res.send([true,foundItem[0]._id])
-//       }else{
-//         res.send([false,"You have entered invalid UserName or Password.................."])
-//       }
-//   });
-//   })
+  const userName = req.body.name;
+  const userPassword = req.body.password;
+  console.log(userName,userPassword)
+  userDetails.find({username:userName},(err,foundItem) =>{
+    console.log(foundItem[0].password)
+    const hash = foundItem[0].password
+    bcrypt.compare(userPassword,hash, function(err, result) {
+      console.log(result)
+      if(result){
+        res.send([true,foundItem[0]._id])
+      }else{
+        res.send([false,"You have entered invalid UserName or Password.................."])
+      }
+  });
+  })
 
-// });
-// App.post("/register",(req,res) =>{
-//   const userName = req.body.name;
-//   const userPassword = req.body.password;
-//   userDetails.findOne({username:userName},(err,foundItem) =>{
-//     if(!err){
-//       if(!foundItem){
-//         bcrypt.hash(userPassword, saltRounds, function(err, hash) {
-//           console.log(hash)
-//           userDetails.insertMany({username:userName,password:hash,userURLParams:userName+"user123",response:[]},(err) =>{if(!err){user.find({},(err,foundItem) =>{if(!err){
-//             res.send("true")
-//             console.log("Successfully inserted into Database...")}})}});
-//       });
-//       }else{
-//         res.send("false")
-//       }
-//     }else{
-//       console.log(err)
-//     }
+});
+App.post("/register",(req,res) =>{
+  const userName = req.body.name;
+  const userPassword = req.body.password;
+  userDetails.findOne({username:userName},(err,foundItem) =>{
+    if(!err){
+      if(!foundItem){
+        bcrypt.hash(userPassword, saltRounds, function(err, hash) {
+          console.log(hash)
+          userDetails.insertMany({username:userName,password:hash,userURLParams:userName+"user123",response:[]},(err) =>{if(!err){user.find({},(err,foundItem) =>{if(!err){
+            res.send("true")
+            console.log("Successfully inserted into Database...")}})}});
+      });
+      }else{
+        res.send("false")
+      }
+    }else{
+      console.log(err)
+    }
 
-//   })
-// })
+  })
+})
 
 App.post("/home",(req,res)=>{
   const userID = req.body.id
