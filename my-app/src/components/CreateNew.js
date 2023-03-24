@@ -13,7 +13,7 @@ function CreateNew(match){
     const target = useRef(null);
     const id = match.match.params.id
     const userName = match.match.params.name
-    const path = "https://vikipedia-1.herokuapp.com/#/home/"+String(id)+"/a/"+userName+"/b/"+String(id)+"/response"
+    const path = "http://localhost:3000/#/home/"+String(id)+"/a/"+userName+"/b/"+String(id)+"/response"
     useEffect(()=>{
         console.log(path)
         setInterval(()=>{
@@ -30,7 +30,7 @@ function CreateNew(match){
                 <Link to={`/home/${id}`}><Button className="thanksButton">Back 2 Home</Button></Link>
                 <div className="linkClip">
                 <div className="linkDiv">
-                <input type="text" className="copyTextInput" id="copyText" name="country" value={`https://vikipedia-1.herokuapp.com/#/home/${id}/a/${userName}/b/${id}/response`} readonly></input>
+                <input type="text" className="copyTextInput" id="copyText" name="country" value={`http://localhost:3000/#/home/${id}/a/${userName}/b/${id}/response`} readonly></input>
                 </div>
                 <div >
                 <Button ref={target} onClick={() =>{CopyText(path) 

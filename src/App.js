@@ -1,3 +1,4 @@
+`node --trace-deprecation` 
 const express = require("express");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -14,7 +15,7 @@ App.use(bodyParser.urlencoded({extended:true}));
 App.use(express.urlencoded({ extended: false }));
 App.use(express.json());
 
-.......
+mongoose.connect('mongodb+srv://wikkie:vignesh7550@vikipedia-1.vbafptp.mongodb.net/?retryWrites=true&w=majority',{ useNewUrlParser: true },{ useUnifiedTopology: true });
 
 mongoose.connection.on("connected",()=>{
   console.log("Mongoose connected with atlas successfully")
@@ -54,13 +55,16 @@ App.post("/fulldetails",(req,res) =>{
 
 App.post("/login",(req, res) => {
   
-  const userName = req.body.name;
+  const userName = req.body.name
   const userPassword = req.body.password;
   console.log(userName,userPassword)
   userDetails.find({username:userName,password:userPassword},(err,foundItem) =>{
     if(!err){
       if(foundItem){
+        console.log(foundItem);
         res.send([true,foundItem[0]._id])
+      }else if(!foundItem){
+          console.log("user not found");
       }else if(err){
         res.send([false,"You have entered invalid UserName or Password.................."])
       }
@@ -70,7 +74,7 @@ App.post("/login",(req, res) => {
   });
 });
 App.post("/register",(req,res) =>{
-  const userName = req.body.name;
+  const userName = req.body.name
   const userPassword = req.body.password;
   userDetails.findOne({username:userName},(err,foundItem) =>{
     if(!err){
@@ -89,50 +93,6 @@ App.post("/register",(req,res) =>{
 })
 
 
-
-
-
-
-// App.post("/login",(req, res) => {
-  
-//   const userName = req.body.name;
-//   const userPassword = req.body.password;
-//   console.log(userName,userPassword)
-//   userDetails.find({username:userName},(err,foundItem) =>{
-//     console.log(foundItem[0].password)
-//     const hash = foundItem[0].password
-//     bcrypt.compare(userPassword,hash, function(err, result) {
-//       console.log(result)
-//       if(result){
-//         res.send([true,foundItem[0]._id])
-//       }else{
-//         res.send([false,"You have entered invalid UserName or Password.................."])
-//       }
-//   });
-//   })
-
-// });
-// App.post("/register",(req,res) =>{
-//   const userName = req.body.name;
-//   const userPassword = req.body.password;
-//   userDetails.findOne({username:userName},(err,foundItem) =>{
-//     if(!err){
-//       if(!foundItem){
-//         bcrypt.hash(userPassword, saltRounds, function(err, hash) {
-//           console.log(hash)
-//           userDetails.insertMany({username:userName,password:hash,userURLParams:userName+"user123",response:[]},(err) =>{if(!err){user.find({},(err,foundItem) =>{if(!err){
-//             res.send("true")
-//             console.log("Successfully inserted into Database...")}})}});
-//       });
-//       }else{
-//         res.send("false")
-//       }
-//     }else{
-//       console.log(err)
-//     }
-
-//   })
-// })
 
 App.post("/home",(req,res)=>{
   const userID = req.body.id
