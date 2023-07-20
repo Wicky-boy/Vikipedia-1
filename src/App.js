@@ -15,7 +15,7 @@ App.use(bodyParser.urlencoded({extended:true}));
 App.use(express.urlencoded({ extended: false }));
 App.use(express.json());
 
-mongoose.connect('mongodb+srv://wikkie:vignesh7550@vikipedia-1.vbafptp.mongodb.net/?retryWrites=true&w=majority',{ useNewUrlParser: true },{ useUnifiedTopology: true });
+mongoose.connect('',{ useNewUrlParser: true },{ useUnifiedTopology: true });
 
 mongoose.connection.on("connected",()=>{
   console.log("Mongoose connected with atlas successfully")
