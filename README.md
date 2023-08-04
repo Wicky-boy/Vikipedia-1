@@ -24,21 +24,21 @@ Fuel Your Curiosity! Engage in brain-tingling challenges across diverse topics. 
 Clone my repository
 ```bash
   git clone https://github.com/Wikkiee/Quizzify.git
+  cd Quizzify
+  npm install
 ```
 
 Instruction - Frontend
 
 ```bash
   cd Quizzify/my-app
-  npm install
-  npm run start
+  npm start
 ```
 Instruction - Backend
 
 ```bash
   cd Quizzify
-  npm install
-  npm run start
+  npm run dev
 ```
     
 ## Support
