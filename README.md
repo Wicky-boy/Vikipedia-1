@@ -1,5 +1,5 @@
 
-# Quizzify
+# Quizzify - 2021
 
 Fuel Your Curiosity! Engage in brain-tingling challenges across diverse topics. Uncover knowledge nuggets, compete with friends, and expand your horizons – all in one captivating React web app.
 ## Frontend technologies 
@@ -25,20 +25,24 @@ Clone my repository
 ```bash
   git clone https://github.com/Wikkiee/Quizzify.git
   cd Quizzify
-  npm install
 ```
 
 Instruction - Frontend
 
 ```bash
-  cd Quizzify/my-app
-  npm start
+  cd Quizzify/client
+  npm install
+  npm run dev
 ```
 Instruction - Backend
 
 ```bash
-  cd Quizzify
+  cd Quizzify/Server
+  npm install
   npm run dev
+
+  *Note : You need to add .env file on the Quizzify/Backend/src with the following env variable
+          DATABASE_URL= your mongodb connection url
 ```
     
 ## Support
