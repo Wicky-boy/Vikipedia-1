@@ -48,7 +48,7 @@ function Register({history}){
                     <TextField onChange={registerInputOnChangeEventHandler} name="userName" className="registerInput1" id="outlined-basic1" label="Create Username" variant="outlined" value={userName}></TextField>
                     <br/>
                     <br/>
-                    <TextField onChange={registerInputOnChangeEventHandler} name="userPassword" className="registerInput2" id="outlined-basic2" label="Create Password" variant="outlined" value={userPassword}></TextField>
+                    <TextField onChange={registerInputOnChangeEventHandler} name="userPassword" className="registerInput2" id="outlined-basic2" label="Create Password" variant="outlined" value={userPassword} hintText="Password" type="password"></TextField>
                     <br/>
                     <br/>
                     {isRegistered ? <Link to="/login"> <Button className="navButton btn" type="button">Login</Button> </Link>: <Button className="navButton btn" type="submit">Register</Button>}

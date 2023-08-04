@@ -78,6 +78,8 @@ function Login({history}) {
         onChange ={onChangeSecondEventHandler}
         name="info"
         value={secondInputValue}
+        hintText="Password"
+        type="password"
       ></TextField>
       <br/>
       <br/>
